@@ -32,7 +32,7 @@ The frontend is the user-facing part of the application, built for speed and res
 
 The backend is the engine that drives the platform, handling data collection and delivery.
 
-  * **Built with Python & FastAPI:** Uses Python 3.11+ and FastAPI, a high-performance framework for building APIs. The backend is run in a isolated **Python virtual environment**.
+  * **Built with Python & FastAPI:** Uses Python 3.11+ and FastAPI, a high-performance framework for building APIs. The backend and scrapers are run in isolated **Python virtual environments**.
   * **Data Scrapers:**
       * **Crawl4AI** is used for efficient web crawling and data extraction.
       * **BeautifulSoup** is used for HTML parsing.
