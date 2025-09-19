@@ -24,7 +24,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 * View detailed job information in a modal
 * Real-time data updates powered by **scheduled scrapers**
 * Secure API access via HTTPS and CORS handling
-
+* **monitoring and logging** for automated troubleshooting
 ---
 
 ## Architecture
@@ -80,7 +80,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 | Frontend | React, Vite, Tailwind CSS           |
 | Backend  | Python, FastAPI, Uvicorn            |
 | Database | SQL (MySQL/PostgreSQL compatible)   |
-| Hosting  | VPS (Apache reverse proxy, HTTPS)   |
+| Hosting  | Linux (Apache reverse proxy, HTTPS) |
 | DevOps   | pm2, cron scheduled automation      |
 | Scraping | Crawl4AI, BeautifulSoup             |
 
@@ -101,7 +101,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 * Add **authentication and authorization** (JWT/OAuth2)
 * Introduce **CI/CD pipelines** for auto-deployment
 * Explore **containerization (Docker)** for scalability
-* Add **monitoring and logging** for reliability
+
 
 ---
 
