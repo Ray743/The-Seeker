@@ -1,4 +1,4 @@
-# The Seeker Job Board 🟢 [Visit Now!](https://ray743.github.io/The-Seeker/)
+# The Seeker Job Board 🟢 [👉Visit here!👈](https://ray743.github.io/The-Seeker/)
 
 ![Seeker Logo](/logo.png)
 
