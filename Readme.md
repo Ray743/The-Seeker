@@ -91,7 +91,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 * HTTPS-secured endpoints
 * CORS configured for frontend integration
 * Production-ready process management via pm2
-* Separation of local development and server environments
+* Separation of virtual and server environments
 
 ---
 
