@@ -12,7 +12,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 
 ## Features
 
-* Presently fetches job listings from multiple sources:
+* Currently fetching job listings from multiple sources:
 
   * PNG JobSeek
   * PNG Workboard
