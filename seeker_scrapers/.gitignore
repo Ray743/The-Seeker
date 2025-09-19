@@ -1,0 +1,9 @@
+pngjobseek/
+pngworkforce/
+pngworkboard/
+venv/
+merge_cron.log
+
+__pycache__/
+*.pyc
+*.pyo

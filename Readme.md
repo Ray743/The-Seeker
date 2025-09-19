@@ -1,108 +1,91 @@
-# The Seeker Job Board 🟢 [👉Visit here!👈](https://ray743.github.io/The-Seeker/)
+# The Seeker: Job Board for Papua New Guinea 🟢 [👉Visit here\!👈](https://ray743.github.io/The-Seeker/)
 
-![Seeker Logo](/logo.png)
+The Seeker is a **fully functional, production-ready job listing platform** for Papua New Guinea. This platform aggregates job postings from multiple sources and provides users with powerful filtering, sorting, and search capabilities. It's built with a **React + Vite frontend** and a **FastAPI backend** to deliver a fast and responsive user experience.
 
-## Overview
+The entire system is **fully automated**, with scheduled scrapers and backend scripts running on a Linux server to ensure the job listings are updated with fresh, real-time data multiple times a day.
 
-**Seeker** is a **fully functional job listing platform** for Papua New Guinea. It aggregates job postings from multiple sources, provides filtering and sorting capabilities, and displays real-time data through a **React + Vite frontend** connected to a **FastAPI backend**.
+-----
 
-The system is **production-ready**, with the front-end hosted on GitHub pages - scrapers and back-end scripts running on a Linux server with HTTPS, and fully automated to update job listings three times a day within 2 minute intervals.
+## ⚡ Features
 
----
+  * **Comprehensive Job Listings:** Aggregates job postings from key sources in Papua New Guinea, including PNG JobSeek, PNG Workboard, PNG Workforce, and Vodafone PNG careers.
+  * **Search & Filters:** Users can easily find relevant jobs by **search query** and **job categories**.
+  * **Sorting:** Sort job listings by **newest** or **oldest** to quickly find the most relevant opportunities.
+  * **Pagination:** The platform handles large datasets efficiently by paginating results, showing 10 jobs per page.
+  * **Job Details Modal:** Provides a clean, detailed view of individual job postings in a user-friendly modal.
+  * **Automated Data Updates:** The system is powered by **scheduled scrapers** that run three times a day at 2-minute intervals to ensure the data is always current.
+  * **Secure & Reliable:** API access is secured with **HTTPS** and **CORS** handling, with built-in monitoring and logging for automated troubleshooting.
 
-## Features
+-----
 
-* Currently scraping job listings from multiple sources:
+## 🏛️ Architecture
 
-  * PNG JobSeek
-  * PNG Workboard
-  * PNG Workforce
-  * Vodafone PNG careers
-* Filter jobs by **search query** and **Job categories**
-* Sort jobs by **Newest** or **Oldest**
-* Paginate results (10 jobs per page)
-* View detailed job information in a modal
-* Real-time data updates powered by **scheduled scrapers**
-* Secure API access via HTTPS and CORS handling
-* **monitoring and logging** for automated troubleshooting
----
+### **Frontend**
 
-## Architecture
+The frontend is the user-facing part of the application, built for speed and responsiveness.
 
-### Frontend
+  * **Built with React + Vite:** A modern JavaScript library and a fast build tool for developing single-page applications.
+  * **Hosting:** The static site is hosted on **GitHub Pages**.
+  * **Dynamic Data:** It dynamically fetches job data from the **FastAPI backend** using API endpoints.
 
-* Built with **React + Vite**
-* Hosted on GitHub pages
-* Dynamically fetches job data from the **FastAPI backend**
-* Components:
+### **Backend**
 
-  * Sidebar with search and category filters
-  * Job listing grid
-  * Pagination
-  * Job detail modal
-  * Top navigation with sorting
+The backend is the engine that drives the platform, handling data collection and delivery.
 
-### Backend
+  * **Built with Python & FastAPI:** Uses Python 3.11+ and FastAPI, a high-performance framework for building APIs. The backend is run in a isolated **Python virtual environment**.
+  * **Data Scrapers:**
+      * **Crawl4AI** is used for efficient web crawling and data extraction.
+      * **BeautifulSoup** is used for HTML parsing.
+  * **Job Pipeline:**
+    1.  The scrapers fetch data from all sources and save it to `all_jobs.json`.
+    2.  The backend script merges, cleans, and then inserts/updates the jobs in a **SQL database**.
+    3.  **FastAPI** exposes the data through a `/api/jobs` endpoint for the frontend.
+  * **Deployment & DevOps:**
+      * The backend and scrapers are hosted on a **Linux server**.
+      * **Apache** serves as a reverse proxy, securing the API with **HTTPS**.
+      * **Uvicorn** is the ASGI server for the FastAPI app, managed in production by **pm2** to keep the process alive.
+      * A **cron job** schedules the automated scraper runs.
+      * **CORS** is configured to allow secure communication between the GitHub Pages frontend and the backend API.
 
-* Built with **Python 3.11+** and **FastAPI**, hosted in a **Python virtual environment**
-* **Scrapers**:
+-----
 
-  * Crawl4AI for crawling and extracting data from job pages
-  * BeautifulSoup for HTML parsing
-* **Job pipeline**:
+## ⚙️ Production Workflow
 
-  1. Scrapers fetch job data from all sources and save to JSON files.
-  2. Backend merges jobs, adds metadata, and inserts/upserts them into a **SQL database**.
-  3. FastAPI exposes endpoints under `/api/jobs` for frontend consumption.
-* **Deployment & DevOps**:
+1.  **Scraping:** Automated scrapers fetch and parse new job postings.
+2.  **Ingestion:** The scraped jobs are merged, cleaned, and pushed to the SQL database.
+3.  **API Call:** The frontend makes a request to the live FastAPI endpoints to get the latest data.
+4.  **User View:** The user sees a real-time, filtered, paginated, and sorted list of jobs.
 
-  * Back-end and scrapers Hosted on a **Linux Server** with HTTPS via Apache reverse proxy
-  * Uvicorn + pm2 for production process management
-  * Automated scrapers runs at 2-minute intervals 3 times a day
-  * CORS handled for local development and production
-  * Front-end hosted on GitHub pages
+-----
 
----
+## 💻 Tech Stack
 
-## Production Workflow
+| Layer | Technology |
+| :--- | :--- |
+| Frontend | React, Vite, Tailwind CSS |
+| Backend | Python, FastAPI, Uvicorn |
+| Database | SQL (MySQL/PostgreSQL compatible) |
+| Hosting | Linux, Apache (Reverse Proxy) |
+| DevOps | pm2, cron scheduled automation |
+| Scraping | Crawl4AI, BeautifulSoup |
 
-1. Scrapers automatically fetch and parse job postings.
-2. Jobs are merged, cleaned, and pushed to the SQL database.
-3. Frontend requests live data via FastAPI endpoints.
-4. Users view filtered, paginated, and sorted job listings in real-time.
+-----
 
----
+## 🔒 Security & Reliability
 
-## Tech Stack
+  * **HTTPS** secures all API communication.
+  * **CORS** is properly configured to allow for secure cross-origin requests.
+  * **pm2** ensures the API process is always running, providing high availability.
+  * Separation of virtual and server environments prevents dependency conflicts.
 
-| Layer    | Technology                          |
-| -------- | ----------------------------------- |
-| Frontend | React, Vite, Tailwind CSS           |
-| Backend  | Python, FastAPI, Uvicorn            |
-| Database | SQL (MySQL/PostgreSQL compatible)   |
-| Hosting  | Linux (Apache reverse proxy, HTTPS) |
-| DevOps   | pm2, cron scheduled automation      |
-| Scraping | Crawl4AI, BeautifulSoup             |
+-----
 
----
+## 🚧 Future Enhancements
 
-## Security & Reliability
+  * **Testing:** Implement unit tests and API integration tests to ensure code quality and stability.
+  * **Authentication:** Add **JWT** or **OAuth2** for secure authentication and authorization.
+  * **CI/CD:** Introduce **Continuous Integration / Continuous Deployment** pipelines to automate the deployment process.
+  * **Containerization:** Explore **Docker** to encapsulate the application and its dependencies, simplifying deployment and scalability.
+  * **Custom dedicated domain** to point to the application's live url to.
 
-* HTTPS-secured endpoints
-* CORS configured for frontend integration
-* Production-ready process management via pm2
-* Separation of virtual and server environments
-
----
-
-## Future Enhancements
-
-* Implement **unit tests** and **API integration tests**
-* Add **authentication and authorization** (JWT/OAuth2)
-* Introduce **CI/CD pipelines** for auto-deployment
-* Explore **containerization (Docker)** for scalability
-
-
----
-
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
+-----

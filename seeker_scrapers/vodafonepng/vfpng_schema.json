@@ -1,0 +1,32 @@
+{
+  "name": "VFPGJobListingExtractor",
+  "baseSelector": "li.list-group-item",
+  "fields": [
+    {
+      "name": "title",
+      "selector": "a.e-clickable.redirect_elmo_link",
+      "type": "text"
+    },
+    {
+      "name": "jobLink",
+      "selector": "a.e-clickable.redirect_elmo_link",
+      "type": "attribute",
+      "attribute": "href"
+    },
+    {
+      "name": "location",
+      "selector": "div.col-md-4 div.row:nth-of-type(1) div.col-md-10",
+      "type": "text"
+    },
+    {
+      "name": "employmentType",
+      "selector": "div.col-md-4 div.row:nth-of-type(2) div.col-md-10",
+      "type": "text"
+    },
+    {
+      "name": "datePosted",
+      "selector": "div.col-md-4 div.row:nth-of-type(3) div.col-md-10",
+      "type": "text"
+    }
+  ]
+}

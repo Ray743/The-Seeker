@@ -1,0 +1,91 @@
+/bin/sh: 1: /home/seeker/seeker/seeker_scrapers/vodafonepng/venv/bin/python: not found
+
+=== Crawling Vodafone PNG Jobs ===
+[INIT].... → Crawl4AI 0.7.3 
+[FETCH]... ↓ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 9.33s 
+[SCRAPE].. ◆ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.04s 
+[EXTRACT]. ■ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.04s 
+[COMPLETE] ● 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 9.41s 
+✅ Found 7 jobs
+
+🎯 Scraped total 7 jobs & saved to vodafone_jobs.json
+
+=== Crawling Vodafone PNG Jobs ===
+[INIT].... → Crawl4AI 0.7.3 
+[FETCH]... ↓ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 8.98s 
+[SCRAPE].. ◆ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.26s 
+[EXTRACT]. ■ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.04s 
+[COMPLETE] ● 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 9.29s 
+✅ Found 7 jobs
+
+🎯 Scraped total 7 jobs & saved to vodafone_jobs.json
+
+=== Crawling Vodafone PNG Jobs ===
+[INIT].... → Crawl4AI 0.7.3 
+[FETCH]... ↓ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 11.58s 
+[SCRAPE].. ◆ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.08s 
+[EXTRACT]. ■ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.04s 
+[COMPLETE] ● 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 11.70s 
+✅ Found 7 jobs
+
+🎯 Scraped total 7 jobs & saved to vodafone_jobs.json
+
+=== Crawling Vodafone PNG Jobs ===
+[INIT].... → Crawl4AI 0.7.3 
+[FETCH]... ↓ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 14.65s 
+[SCRAPE].. ◆ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.05s 
+[EXTRACT]. ■ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.25s 
+[COMPLETE] ● 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 14.95s 
+✅ Found 7 jobs
+
+🎯 Scraped total 7 jobs & saved to vodafone_jobs.json
+
+=== Crawling Vodafone PNG Jobs ===
+[INIT].... → Crawl4AI 0.7.3 
+[FETCH]... ↓ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 7.28s 
+[SCRAPE].. ◆ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.09s 
+[EXTRACT]. ■ 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 0.11s 
+[COMPLETE] ● 
+https://vodafonepng.elmotalent.com.au/careers/VFPG/jobs?layout=iframe           
+| ✓ | ⏱: 7.49s 
+✅ Found 7 jobs
+
+🎯 Scraped total 7 jobs & saved to vodafone_jobs.json
