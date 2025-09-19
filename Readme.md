@@ -12,7 +12,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 
 ## Features
 
-* Currently fetching job listings from multiple sources:
+* Currently scraping job listings from multiple sources:
 
   * PNG JobSeek
   * PNG Workboard
@@ -47,7 +47,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 * Built with **Python 3.11+** and **FastAPI**, hosted in a **Python virtual environment**
 * **Scrapers**:
 
-  * Crawl4AI for crawling job pages
+  * Crawl4AI for crawling and extracting data from job pages
   * BeautifulSoup for HTML parsing
 * **Job pipeline**:
 
@@ -56,10 +56,11 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
   3. FastAPI exposes endpoints under `/api/jobs` for frontend consumption.
 * **Deployment & DevOps**:
 
-  * Hosted on a **Linux Server** with HTTPS via Apache reverse proxy
+  * Back-end and scrapers Hosted on a **Linux Server** with HTTPS via Apache reverse proxy
   * Uvicorn + pm2 for production process management
-  * Automated scrapers run at 2-minute intervals
+  * Automated scrapers runs at 2-minute intervals 3 times a day
   * CORS handled for local development and production
+  * Front-end hosted on GitHub pages
 
 ---
 
@@ -80,7 +81,7 @@ The system is **production-ready**, with the front-end hosted on GitHub pages - 
 | Backend  | Python, FastAPI, Uvicorn            |
 | Database | SQL (MySQL/PostgreSQL compatible)   |
 | Hosting  | VPS (Apache reverse proxy, HTTPS)   |
-| DevOps   | pm2, cron-like scheduled automation |
+| DevOps   | pm2, cron scheduled automation      |
 | Scraping | Crawl4AI, BeautifulSoup             |
 
 ---
