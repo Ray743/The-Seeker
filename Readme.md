@@ -1,4 +1,4 @@
-# The Seeker App 🟢 Preview:(https://ray743.github.io/The-Seeker/)
+# The Seeker Job Board 🟢 visit:(https://ray743.github.io/The-Seeker/)
 
 ![Seeker Logo](/logo.png)
 
@@ -61,6 +61,6 @@ The production-ready version will include:
 
 
 ---
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker-Prototype)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
 
 
