@@ -1,66 +1,107 @@
-# The Seeker Job Board 🟢 visit:(https://ray743.github.io/The-Seeker/)
+# The Seeker Job Board 🟢 [Live Site](https://ray743.github.io/The-Seeker/)
 
 ![Seeker Logo](/logo.png)
 
-
 ## Overview
 
-Seeker is a **minimal functional prototype** of a job listing application. This version is built for demonstration purposes only. The app is **not production-ready** and is designed to showcase core functionality and the integration workflow between scrapers, backend, and frontend.  
+**Seeker** is a **fully functional job listing platform** for Papua New Guinea. It aggregates job postings from multiple sources, provides filtering and sorting capabilities, and displays real-time data through a **React + Vite frontend** connected to a **FastAPI backend**.
 
-Future versions will enhance features, improve performance, and implement live data integration.  
+The system is **production-ready**, hosted on a VPS with HTTPS, and fully automated to update job listings every few minutes.
 
 ---
 
 ## Features
 
-- Displays job listings from **three different sources**:
-  - PNG JobSeek
-  - PNG Workboard
-  - PNG Workforce
-- Filter jobs by **search query** and **job source**
-- Sort jobs by **Newest** or **Oldest**
-- Paginate results (6 jobs per page)
-- View detailed job information in a modal
+* Presently fetches job listings from multiple sources:
+
+  * PNG JobSeek
+  * PNG Workboard
+  * PNG Workforce
+  * Vodafone PNG careers
+* Filter jobs by **search query** and **Job categories**
+* Sort jobs by **Newest** or **Oldest**
+* Paginate results (10 jobs per page)
+* View detailed job information in a modal
+* Real-time data updates powered by **scheduled scrapers**
+* Secure API access via HTTPS and CORS handling
 
 ---
 
 ## Architecture
 
-This prototype demonstrates a **full-stack workflow**:
-
 ### Frontend
-- Built with **React**
-- Displays job data from `public/jobs.json`
-- Components:
-  - Sidebar with search and job source categories
-  - Job listing grid
-  - Pagination
-  - Job modal
-  - Top navigation with sorting
+
+* Built with **React + Vite**
+* Hosted on GitHub pages
+* Dynamically fetches job data from the **FastAPI backend**
+* Components:
+
+  * Sidebar with search and category filters
+  * Job listing grid
+  * Pagination
+  * Job detail modal
+  * Top navigation with sorting
 
 ### Backend
-- Built in **Python** and housed in a **Python virtual environment**
-- **Job merging script**: `merge_jobs.py` consolidates jobs from multiple JSON sources into a single frontend JSON file.
-- Scrapers:
-  - **Crawl4AI** for crawling pages
-  - **BeautifulSoup** for parsing HTML
-- Workflow:
-  1. Scrapers fetch job data and save to individual JSON files (`jobseek_jobs.json`, `workboard_jobs.json`, `workforce_jobs.json`)
-  2. `merge_jobs.py` reads these JSON files, adds a `source` field for each job, and merges them into `public/jobs.json`
-  3. React frontend fetches `jobs.json` and renders jobs dynamically
+
+* Built with **Python 3.11+** and **FastAPI**, hosted in a **Python virtual environment**
+* **Scrapers**:
+
+  * Crawl4AI for crawling job pages
+  * BeautifulSoup for HTML parsing
+* **Job pipeline**:
+
+  1. Scrapers fetch job data from all sources and save to JSON files.
+  2. Backend merges jobs, adds metadata, and inserts/upserts them into a **SQL database**.
+  3. FastAPI exposes endpoints under `/api/jobs` for frontend consumption.
+* **Deployment & DevOps**:
+
+  * Hosted on a **Linux Server** with HTTPS via Apache reverse proxy
+  * Uvicorn + pm2 for production process management
+  * Automated scrapers run at 2-minute intervals
+  * CORS handled for local development and production
 
 ---
 
-## Future Production Plan
+## Production Workflow
 
-The production-ready version will include:
-
-- **Flask backend** for API and live data integration
-- Jobs stored in a **SQL database** for dynamic querying and updates
-- Improved authentication, error handling, and deployment optimizations
-
+1. Scrapers automatically fetch and parse job postings.
+2. Jobs are merged, cleaned, and pushed to the SQL database.
+3. Frontend requests live data via FastAPI endpoints.
+4. Users view filtered, paginated, and sorted job listings in real-time.
 
 ---
+
+## Tech Stack
+
+| Layer    | Technology                          |
+| -------- | ----------------------------------- |
+| Frontend | React, Vite, Tailwind CSS           |
+| Backend  | Python, FastAPI, Uvicorn            |
+| Database | SQL (MySQL/PostgreSQL compatible)   |
+| Hosting  | VPS (Apache reverse proxy, HTTPS)   |
+| DevOps   | pm2, cron-like scheduled automation |
+| Scraping | Crawl4AI, BeautifulSoup             |
+
+---
+
+## Security & Reliability
+
+* HTTPS-secured endpoints
+* CORS configured for frontend integration
+* Production-ready process management via pm2
+* Separation of local development and server environments
+
+---
+
+## Future Enhancements
+
+* Implement **unit tests** and **API integration tests**
+* Add **authentication and authorization** (JWT/OAuth2)
+* Introduce **CI/CD pipelines** for auto-deployment
+* Explore **containerization (Docker)** for scalability
+* Add **monitoring and logging** for reliability
+
+---
+
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
-
-
