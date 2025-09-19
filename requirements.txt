@@ -1,5 +1,0 @@
-flask
-Crawl4ai
-mysql-connector-python
-BeautifulSoup4
-python-dotenv
