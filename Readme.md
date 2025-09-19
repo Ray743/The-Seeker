@@ -1,4 +1,4 @@
-# The Seeker Job Board 🟢 [Live Site](https://ray743.github.io/The-Seeker/)
+# The Seeker Job Board 🟢 [visit](https://ray743.github.io/The-Seeker/)
 
 ![Seeker Logo](/logo.png)
 
