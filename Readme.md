@@ -6,7 +6,7 @@
 
 **Seeker** is a **fully functional job listing platform** for Papua New Guinea. It aggregates job postings from multiple sources, provides filtering and sorting capabilities, and displays real-time data through a **React + Vite frontend** connected to a **FastAPI backend**.
 
-The system is **production-ready**, with the front-end hosted on GitHub pages and the back-end and scrapers hosted on a Linux Server with HTTPS, and fully automated to update job listings three times a day - within two minute intervals.
+The system is **production-ready**, with the front-end hosted on GitHub pages - scrapers and back-end scripts running on a Linux server with HTTPS, and fully automated to update job listings three times a day within 2 minute intervals.
 
 ---
 
