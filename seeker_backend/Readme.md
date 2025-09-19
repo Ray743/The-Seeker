@@ -15,9 +15,7 @@ The backend is built using **FastAPI**, a modern Python web framework, and utili
 seeker_backend/
 ├── pull_api.py             # FastAPI application for serving job data
 ├── push_jobs.py            # Script for populating the database with new jobs
-├── Readme.md               # This documentation file
 ├── requirements.txt        # Python dependencies
-├── venv/                   # Python virtual environment
 ├── .env                    # Environment variables for database credentials
 └── push_cron.log           # Log file for the cron job
 ```

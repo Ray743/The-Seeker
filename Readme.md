@@ -89,3 +89,5 @@ The backend is the engine that drives the platform, handling data collection and
   * **Custom dedicated domain** to point to the application's live url to.
 
 -----
+
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
