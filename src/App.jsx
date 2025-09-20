@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import Sidebar from "./components/Sidebar";
 import TopNav from "./components/TopNav";
 import JobList from "./components/JobList";
@@ -6,63 +7,83 @@ import Pagination from "./components/Pagination";
 import JobModal from "./components/JobModal";
 import { getCategoryColor, getCategoryIcon } from "./utils/jobHelpers";
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 10;
 
 export default function App() {
   const [jobs, setJobs] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedSource, setSelectedSource] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("newest");
   const [selectedJob, setSelectedJob] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
+  // Fetch jobs from API
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}jobs.json`)
-      .then((res) => res.json())
-      .then((data) => setJobs(data || []))
-      .catch((err) => console.error("Failed to load jobs.json", err));
+    const fetchJobs = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(import.meta.env.VITE_SEEKER_API);
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        const data = await res.json();
+        setJobs(data || []);
+        setFilteredJobs(data || []);
+      } catch (err) {
+        console.error("Failed to fetch jobs:", err);
+        setError("Could not load jobs");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
   }, []);
 
-  const filteredJobs = jobs.filter((job) => {
-    const matchesSearch = Object.values(job).some((value) =>
+  // Client-side search filter
+  const searchedJobs = filteredJobs.filter((job) =>
+    Object.values(job).some((value) =>
       String(value).toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    const matchesSource = selectedSource ? job.source === selectedSource : true;
-    return matchesSearch && matchesSource;
-  });
+    )
+  );
 
-  const sortedJobs = [...filteredJobs].sort((a, b) => {
+  // Sort jobs
+  const sortedJobs = [...searchedJobs].sort((a, b) => {
     const parseDate = (dateStr) => {
       if (!dateStr) return new Date(0);
-      const match = dateStr.match(/(\d{2})-(\d{2})-(\d{4})/);
+      const match = dateStr.match(/(\d{2})\/(\d{2})\/(\d{4})/); // dd/mm/yyyy
       if (!match) return new Date(0);
       const [_, day, month, year] = match;
       return new Date(`${year}-${month}-${day}`);
     };
-    const dateA = parseDate(a.datePosted);
-    const dateB = parseDate(b.datePosted);
-    return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
+    return sortOrder === "newest"
+      ? parseDate(b.datePosted) - parseDate(a.datePosted)
+      : parseDate(a.datePosted) - parseDate(b.datePosted);
   });
 
+  // Pagination
   const totalPages = Math.ceil(sortedJobs.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentJobs = sortedJobs.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+  // Reset page when search, sort, or category changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, sortOrder, selectedSource]);
+  }, [searchQuery, sortOrder, selectedCategory]);
 
   return (
     <div className="">
-      {/* Desktop Sidebar (independent scroll) */}
+      {/* Sidebar */}
       <div className="hidden md:fixed md:inset-y-0 md:left-0 md:w-64 md:flex md:flex-col md:h-screen md:overflow-y-auto md:overflow-x-hidden md:border-r md:border-gray-200 md:bg-white">
         <Sidebar
           jobs={jobs}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          selectedSource={selectedSource}
-          setSelectedSource={setSelectedSource}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          setFilteredJobs={setFilteredJobs}
           setCurrentPage={setCurrentPage}
         />
       </div>
@@ -71,19 +92,23 @@ export default function App() {
       <div className="flex-1 flex flex-col min-h-screen md:ml-65">
         {/* TopNav */}
         <TopNav
-          total={filteredJobs.length}
+          total={searchedJobs.length}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           sortOrder={sortOrder}
           setSortOrder={setSortOrder}
           jobs={jobs}
-          selectedSource={selectedSource}
-          setSelectedSource={setSelectedSource}
+          selectedSource={selectedCategory} // current category
+          setSelectedSource={setSelectedCategory} // updates selectedCategory
+          setFilteredJobs={setFilteredJobs} // needed for mobile filtering
           setCurrentPage={setCurrentPage}
         />
 
         {/* Job list + pagination */}
         <div className="flex-1 flex flex-col overflow-y-auto p-4 sm:p-8 min-h-0">
+          {loading && <p className="text-gray-500">Loading jobs…</p>}
+          {error && <p className="text-red-500">{error}</p>}
+
           <JobList
             jobs={currentJobs}
             setSelectedJob={setSelectedJob}

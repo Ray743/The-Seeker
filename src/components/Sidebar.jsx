@@ -4,12 +4,13 @@ import SearchBar from "./SearchBar";
 import Categories from "./Categories";
 
 export default function Sidebar({
-  jobs,
   searchQuery,
   setSearchQuery,
-  selectedSource,
-  setSelectedSource,
+  selectedCategory,
+  setSelectedCategory,
+  setFilteredJobs,
   setCurrentPage,
+  jobs,
 }) {
   return (
     <div className="w-64 bg-white shadow-lg flex flex-col h-screen overflow-y-auto">
@@ -23,8 +24,9 @@ export default function Sidebar({
         <div className="mt-6 flex-1 overflow-y-auto">
           <Categories
             jobs={jobs}
-            selectedSource={selectedSource}
-            setSelectedSource={setSelectedSource}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            setFilteredJobs={setFilteredJobs}
             setCurrentPage={setCurrentPage}
           />
         </div>
