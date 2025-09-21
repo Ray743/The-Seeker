@@ -87,3 +87,4 @@ python vodafonepng/scrape_vfpng.py
 ### **✅ Output**
 
 Running the script will generate a **`vodafone_jobs.json`** file inside the `vodafonepng` directory, which contains all the extracted job postings from Vodafone's career site.
+https://github.com/Ray743/The-Seeker/tree/master/seeker_backend#readme
