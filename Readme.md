@@ -36,6 +36,8 @@ The backend is the engine that drives the platform, handling data collection and
   * **Data Scrapers:**
       * **Crawl4AI** is used for efficient web crawling and data extraction.
       * **BeautifulSoup** is used for HTML parsing.
+      * More about the Scrapers: https://github.com/Ray743/The-Seeker/tree/master/seeker_scrapers#readme
+      * [👉More on the Scrapers\!👈]( https://github.com/Ray743/The-Seeker/tree/master/seeker_scrapers#readme)
   * **Job Pipeline:**
     1.  The scrapers fetch data from all sources and save it to `all_jobs.json`.
     2.  The backend script merges, cleans, and then inserts/updates the jobs in a **SQL database**.
