@@ -1,8 +1,6 @@
-# Seeker - Front End
+# The Seeker - Front End
 
-![Seeker Logo](./public/logo.png)
-
-**Seeker** is a modern, responsive job listing frontend built with **React** and **Tailwind CSS**. It allows users to browse, search, filter, and preview job listings seamlessly on both desktop and mobile devices.
+**The Seeker** front end is a modern, responsive job listing frontend built with **React** and **Tailwind CSS**. It allows users to browse, search, filter, and preview job listings seamlessly on both desktop and mobile devices.
 
 ---
 
@@ -48,40 +46,6 @@ src/
 └── App.jsx
 
 ````
-
----
-
-## ⚡ Setup & Run
-
-1. Clone the repo:
-
-```bash
-git clone <your-repo-url>
-cd seeker-frontend
-````
-
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Set your API endpoint in a `.env` file:
-
-```env
-VITE_SEEKER_API=https://your-api-endpoint.com/jobs
-```
-
-4. Run the development server:
-
-```bash
-npm run dev
-```
-
-5. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
 ## 🎯 Usage
 
 * Browse jobs on desktop via the sidebar or on mobile via top navigation
