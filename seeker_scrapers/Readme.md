@@ -33,7 +33,7 @@ The scraping process is streamlined and automated:
       * The extracted job postings are then saved into the corresponding `<site_name>_jobs.json` file.
 2.  **Merging Data:** After all individual scrapers have run, the **`merge_jobs.py`** script is executed.
       * This script accesses all `<site_name>_jobs.json` files from their respective subdirectories.
-      * It merges the data from these files into a single, comprehensive `all_jobs.json` file.
+      * It processes, cleans, unifies and merges the data from these files into a single, comprehensive `all_jobs.json` file.
 
 To ensure the data is always up-to-date, each scraper script is set up to run on **cron jobs**. This automation helps with scheduled updates and provides separate logs for debugging and troubleshooting in case of a failure.
 
