@@ -65,5 +65,3 @@ This command:
   * Passes arguments to Uvicorn to run the `pull_api:app` with the host `0.0.0.0` (accessible from any network interface) on port `8000`.
 
 For production, the API on port `8000` is then **reverse-proxied** using **Apache**, which allows it to be served securely over a standard domain with an **SSL certificate**. This setup ensures the API is reliable, secure, and always available.
-
-[👉Continue to Font End\!](https://github.com/Ray743/The-Seeker/blob/gh-pages/README.md)
