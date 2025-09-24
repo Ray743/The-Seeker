@@ -33,7 +33,7 @@ The entire system is **fully automated**, with scheduled scrapers and backend sc
 
 The frontend is the user-facing part of the application, built for speed and responsiveness.
 
-* **Built with React + Vite & Tailwind CSS:** A modern JavaScript library and a fast build tool for developing single-page applications.
+* **Built with React + Vite:** A modern JavaScript library and a fast build tool for developing single-page applications.
 * **Hosting:** The static site is hosted on **GitHub Pages**.
 * **Dynamic Data:** It dynamically fetches job data from the **FastAPI backend** using API endpoints.
 
