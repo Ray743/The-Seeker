@@ -3,7 +3,7 @@
 
 The Seeker is a **fully functional, job listing platform** for Papua New Guinea. This platform aggregates job postings from multiple sources and provides users with filtering, sorting, and search capabilities. It's built with **Python**, a **React + Vite frontend** and a **FastAPI backend** to deliver a fast and responsive user experience.
 
-The entire system is **fully automated**, with scheduled scrapers and backend scripts running on a Linux server to ensure the job listings are updated with fresh, real-time data multiple times a day.
+The entire system is **fully automated**, with scheduled scrapers and backend scripts running on a **Live Linux server** to ensure the job listings are updated with fresh, real-time data multiple times a day.
 
 ---
 
