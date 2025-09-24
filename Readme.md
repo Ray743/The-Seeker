@@ -21,7 +21,8 @@ The entire system is **fully automated**, with scheduled scrapers and backend sc
   * Clean untracked files
   * Run scrapers and backend scripts
   * Restart the API with **pm2**
-    This ensures that every commit pushed to the server immediately updates the live system.
+  
+  This ensures that every commit pushed to the server immediately updates the live system.
 * **Secure & Reliable:** API access is secured with **HTTPS** and **CORS** handling, with built-in monitoring and logging for automated troubleshooting.
 
 ---
