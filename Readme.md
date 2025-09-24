@@ -14,7 +14,7 @@ The entire system is **fully automated**, with scheduled scrapers and backend sc
 * **Sorting:** Sort job listings by **newest** or **oldest** to quickly find the most relevant opportunities.
 * **Pagination:** The platform handles large datasets efficiently by paginating results, showing 10 jobs per page.
 * **Job Details Modal:** Provides a clean, detailed view of individual job postings in a user-friendly modal.
-* **Automated Data Updates:** The system is powered by **scheduled scrapers** that run three times a day at 2-minute intervals to ensure the data is always current.
+* **Automated Data Updates:** The system is powered by **scheduled scrapers** that run three times a day at 2-minute intervals each to ensure the data is always current.
 * **CI/CD Deployment:** Code updates are automatically deployed via a **Git bare repository** and **post-receive hooks**, which:
 
   * Checkout the latest code
