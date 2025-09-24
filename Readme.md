@@ -1,12 +1,5 @@
-Got it 👍 Since your bare repo + post-receive hook + automated scripts + pm2 restart is **already a CI/CD pipeline**, we’ll add that to your README and remove it from “Future Enhancements.”
-
-Here’s the updated README with CI/CD properly documented:
-
----
-
 # The Seeker: Job Board for Papua New Guinea 🟢 [👉Visit here!👈](https://ray743.github.io/The-Seeker/)
 
-![Seeker Logo](/logo.png)
 
 The Seeker is a **fully functional, job listing platform** for Papua New Guinea. This platform aggregates job postings from multiple sources and provides users with powerful filtering, sorting, and search capabilities. It's built with **Python**, a **React + Vite frontend** and a **FastAPI backend** to deliver a fast and responsive user experience.
 
