@@ -51,7 +51,7 @@ The backend is the engine that drives the platform, handling data collection and
 * **Job Pipeline:**
 
   1. The scrapers fetch data from all sources and saves them to individual JSON files in each subdirectory, specific for the source.
-  2. A Python script then pulls data from individual JSON files in each subdirectory, merges, cleans, processes them and saves them to 'all_jobs.json' in the scraper's root directory
+  2. A Python script then pulls data from individual JSON files in each subdirectory, merges, cleans, processes and saves them to 'all_jobs.json' in the scraper's root directory
   3. The backend script then pulls the cleansed data from 'all_jobs.json' and inserts/updates the jobs in a **SQL database**.
   4. **FastAPI** exposes the data through a `/api/jobs` endpoint for the frontend.
 
