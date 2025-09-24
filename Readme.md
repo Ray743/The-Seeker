@@ -110,7 +110,6 @@ The backend is the engine that drives the platform, handling data collection and
 
 * [👉More on Scrapers!](https://github.com/Ray743/The-Seeker/tree/master/seeker_scrapers#readme)
 * [👉More on Backend!](https://github.com/Ray743/The-Seeker/tree/master/seeker_backend#readme)
-* [👉More on Front End!](https://github.com/Ray743/The-Seeker/blob/gh-pages/README.md)
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
 
