@@ -1,4 +1,4 @@
-# 📜 The Seeker: Application Security Policy  
+# 🔒 The Seeker: Application Security Policy  
 
 **Document Owner:** Raynold Bobola  
 **Version:** 1.0  
@@ -7,69 +7,96 @@
 ---
 
 ## 1.0 Policy Statement  
-The purpose of this document is to define the security principles and procedures for **"The Seeker,"** a job listing platform.  
-This policy outlines the measures taken to protect the **confidentiality, integrity, and availability** of the application and its data from unauthorized access, use, disclosure, disruption, modification, or destruction.  
+The purpose of this policy is to define the **security measures and controls** for **The Seeker**, a job board platform for Papua New Guinea.  
+The policy ensures the **confidentiality, integrity, and availability (CIA)** of the platform by protecting against unauthorized access, misuse, disruption, or data tampering.  
 
 ---
 
 ## 2.0 Scope  
-This policy applies to all components of **"The Seeker"** platform, including:  
+This policy applies to all components of **The Seeker** platform, including:  
 
-- **Frontend:** React + Vite and its static hosting environment.  
-- **Backend:** FastAPI and all associated Python scripts (scrapers, data processing scripts).  
-- **Database:** SQL database.  
-- **Server:** Linux server and related services (Apache, pm2, cron jobs).  
-- **DevOps:** Git bare repository and CI/CD pipeline.  
+- **Frontend:** React + Vite SPA hosted on GitHub Pages.  
+- **Backend:** FastAPI app and supporting Python scripts (scrapers, data processors).  
+- **Database:** SQL database (MySQL/PostgreSQL compatible).  
+- **Server & Infrastructure:** Linux server, Apache reverse proxy, pm2, cron jobs.  
+- **CI/CD Pipeline:** Git bare repository with post-receive hooks.  
 
 ---
 
 ## 3.0 Roles and Responsibilities  
-- **Owner (Raynold Bobola):** Solely responsible for the development, implementation, and enforcement of this security policy.  
-  - Covers all aspects of coding, infrastructure management, monitoring, and incident response.  
+- **Owner (Raynold Bobola):**  
+  - Full responsibility for enforcing this policy.  
+  - Covers coding practices, infrastructure management, monitoring, vulnerability patching, and incident response.  
 
 ---
 
 ## 4.0 Core Security Principles  
-- **Principle of Least Privilege:** Accounts, services, and processes operate with the minimum permissions necessary.  
-- **Defense in Depth:** Multiple layers of security controls are implemented for robust protection.  
-- **Proactive Security:** Security considerations are embedded from initial development through ongoing updates.  
+- **Least Privilege:** Access rights are restricted to the minimum needed for each component (DB, scrapers, API).  
+- **Defense in Depth:** Multiple layers of protection (firewall, HTTPS, CORS, secrets in env vars).  
+- **Automation with Control:** Automation (scrapers, CI/CD) is secured by restricting triggers to trusted sources.  
+- **No Sensitive Data:** The system **does not collect or store PII**, reducing exposure risk.  
 
 ---
 
 ## 5.0 Security Measures and Controls  
 
 ### 5.1 Infrastructure Security  
-- **Access Control:** Linux server access is restricted via SSH keys (password-based authentication disabled).  
-- **Reverse Proxy:** Apache configured with SSL/TLS (HTTPS) to secure all API traffic.  
-- **Firewall:** Allows only necessary inbound traffic (ports 80, 443, and a specific SSH port).  
+- **Access Control:**  
+  - SSH access restricted via keys only (password login disabled).  
+  - Only the owner maintains server-level access.  
+- **Reverse Proxy:** Apache enforces HTTPS (SSL/TLS).  
+- **Firewall:** Restricts inbound traffic to required ports (80/443 + designated SSH).  
 
 ### 5.2 Application Security  
-- **API Security:** FastAPI backend uses CORS to restrict API access to approved frontend domains.  
-- **Data Validation:** All user input (e.g., search queries) validated and sanitized on frontend + backend.  
-- **Session Management:** Stateless design—no user authentication, no session handling.  
-- **Sensitive Data:** No Personally Identifiable Information (PII) collected, stored, or processed.  
+- **API Security:**  
+  - FastAPI backend configured with strict **CORS** to only allow the GitHub Pages frontend.  
+- **Data Validation & Sanitization:**  
+  - User queries and scraper outputs are validated before insertion into the database.  
+- **Stateless Design:**  
+  - No user accounts, sessions, or PII → drastically reducing attack surface.  
 
 ### 5.3 Data Security  
-- **Database:** Only accessible from backend server; user configured with least privilege.  
-- **Data Scrapers:** Scraped data stored in JSON → validated and cleaned before insertion into database.  
+- **Database Security:**  
+  - Connections restricted to backend server only.  
+  - DB user granted **least privileges** (read/write only).  
+- **Scraper Workflow Security:**  
+  - Raw scraper data → temporary JSON files.  
+  - Merge/clean scripts validate and sanitize before inserting into SQL.  
+  - Prevents polluted or malicious data from reaching production.  
 
-### 5.4 DevOps and CI/CD Security  
-- **Secrets Management:** API keys, DB credentials, and sensitive info stored in environment variables.  
-- **Secure Deployment:** Git bare repo + post-receive hooks pull only from designated remote for integrity.  
+### 5.4 DevOps & CI/CD Security  
+- **Secrets Management:**  
+  - API keys and credentials stored in **environment variables**, never in code or repo.  
+- **CI/CD Integrity:**  
+  - Git hooks pull only from the trusted remote.  
+  - Post-receive script validates environment and restarts services using **pm2**.  
+- **Cron Jobs:**  
+  - Scrapers run on a schedule, isolated within virtual environments to prevent dependency conflicts.  
 
 ---
 
-## 6.0 Maintenance and Incident Response  
+## 6.0 Maintenance & Incident Response  
 
 ### 6.1 Vulnerability Management  
-- **Regular Updates:** System packages + npm/pip dependencies updated frequently.  
-- **Monitoring:** Server & application logs monitored for unusual activity or errors.  
+- **Updates:** Regular patching of Linux packages, pip, and npm dependencies.  
+- **Monitoring:** Apache, pm2, and FastAPI logs monitored for anomalies or failed scraper runs.  
 
 ### 6.2 Incident Response Plan  
-- **Detection:** Investigate unusual server behavior, unauthorized SSH access, or app errors.  
-- **Containment:** Isolate compromised components (e.g., stop FastAPI, block IPs).  
-- **Eradication:** Patch vulnerabilities via code fixes, server reconfig, or data sanitization.  
-- **Recovery:** Restore service to secure pre-incident state (backups, verification).  
-- **Review:** Conduct full review post-incident → update security policy as needed.  
+- **Detection:**  
+  - Unusual API errors, failed cron runs, or unauthorized SSH attempts flagged for investigation.  
+- **Containment:**  
+  - Stop affected services (pm2, scrapers, API) and block malicious IPs.  
+- **Eradication:**  
+  - Patch vulnerabilities, sanitize DB if needed, and fix misconfigurations.  
+- **Recovery:**  
+  - Restore latest verified backup. Restart API + scrapers. Validate stability.  
+- **Review:**  
+  - Document the incident, update policy or workflows, and harden security gaps.  
 
 ---
+
+## 7.0 Future Security Enhancements  
+- Implement **unit & integration tests** for scrapers and API.  
+- Add **JWT/OAuth2 authentication** when introducing user accounts.  
+- Explore **Docker** for containerized deployment.  
+- Custom **domain & SSL certificates** for production.  
