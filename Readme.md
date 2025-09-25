@@ -24,6 +24,10 @@ The entire system is **fully automated**, with scheduled scrapers and backend sc
   
   This ensures that every commit pushed to the server immediately updates the live system.
 * **Secure & Reliable:** API access is secured with **HTTPS** and **CORS** handling, with built-in monitoring and logging for automated troubleshooting.
+  
+## 📌 Features in progress 
+* Scrapers for extracting job postings for major companies in PNG that has their own job portals.
+* UI/UX Features.
 
 ---
 
