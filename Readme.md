@@ -113,4 +113,10 @@ The backend is the engine that drives the platform, handling data collection and
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
 
+Copyright (c) 2025 Raynold Bobola. All Rights Reserved.
+
+This software, including all source code and documentation, is the exclusive property of Raynold Bobola. All rights, including but not limited to, the rights to copy, modify, distribute, and sell, are reserved.
+
+The software is provided "as is" and is not licensed for public use, modification, or distribution. Any unauthorized use, reproduction, or redistribution of this software is strictly prohibited.
+
 ---
