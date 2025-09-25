@@ -112,7 +112,4 @@ The backend is the engine that drives the platform, handling data collection and
 * [👉More on Backend!](https://github.com/Ray743/The-Seeker/tree/master/seeker_backend#readme)
 
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Ray743.The-Seeker/)
-
-**Copyright (c) 2025 Raynold Bobola. All Rights Reserved.**
-
 ---
