@@ -115,8 +115,4 @@ The backend is the engine that drives the platform, handling data collection and
 
 **Copyright (c) 2025 Raynold Bobola. All Rights Reserved.**
 
-This software, including all source code and documentation, is the exclusive property of Raynold Bobola. All rights, including but not limited to, the rights to copy, modify, distribute, and sell, are reserved.
-
-
-
 ---
