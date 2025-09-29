@@ -1,4 +1,4 @@
-**The Seeker - Front End** 
+## The Seeker - Front End 
 
 ## 🌟 Key Features
 
