@@ -77,6 +77,7 @@ The backend is the engine that drives the platform, handling data collection and
 3. **Deployment:** Any commit pushed to the server triggers an **automatic deployment** pipeline.
 4. **API Call:** The frontend makes a request to the live FastAPI endpoints to get the latest data.
 5. **User View:** The user sees a real-time, filtered, paginated, and sorted list of jobs.
+6. **Custom Domain:** The frontend is accessible at [theseekerpng.com](https://theseekerpng.com), mapped from **Namecheap DNS** to **GitHub Pages** with enforced **HTTPS** for secure browsing.
 
 ---
 
@@ -108,7 +109,6 @@ The backend is the engine that drives the platform, handling data collection and
 * **Front End** Further filtering options
 * **Authentication:** Add **JWT** or **OAuth2** for secure authentication and authorization.
 * **Containerization:** Explore **Docker** to encapsulate the application and its dependencies, simplifying deployment and scalability.
-* **Custom dedicated domain** to point to the application's live URL.
 
 ---
 
