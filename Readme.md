@@ -1,4 +1,4 @@
-# The Seeker: Job Board for Papua New Guinea 🟢 [👉Visit here!👈](https://ray743.github.io/The-Seeker/)
+# The Seeker: Job Board for Papua New Guinea 🟢 [👉Visit here!👈](https://theseekerpng.com)
 
 
 The Seeker is a **fully functional, job listing platform** for Papua New Guinea. This platform aggregates job postings from multiple sources in PNG and renders them on one hub. It provides users with filtering, sorting, and search capabilities. It's built with **Python**, a **React + Vite frontend** and a **FastAPI backend** to deliver a fast and responsive user experience.
