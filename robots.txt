@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://ray743.github.io/The-Seeker/sitemap.xml
+Sitemap: https://theseekerpng.com/sitemap.xml
+
